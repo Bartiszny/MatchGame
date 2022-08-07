@@ -466,11 +466,23 @@
         <child>
           <widget class="Gtk.Label" id="label1">
             <property name="MemberName" />
+            <property name="WidthRequest">230</property>
             <property name="LabelProp" translatable="yes">label1</property>
           </widget>
           <packing>
-            <property name="X">78</property>
-            <property name="Y">427</property>
+            <property name="X">3</property>
+            <property name="Y">433</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label2">
+            <property name="MemberName" />
+            <property name="WidthRequest">230</property>
+            <property name="LabelProp" translatable="yes">label2</property>
+          </widget>
+          <packing>
+            <property name="X">2</property>
+            <property name="Y">401</property>
           </packing>
         </child>
       </widget>

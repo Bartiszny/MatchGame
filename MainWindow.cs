@@ -8,6 +8,7 @@ public partial class MainWindow : Gtk.Window
     Timer timer = new Timer();
     int tenthsOfSecondsElapsed;
     int matchesFound;
+    float previousTime = 0;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
@@ -48,6 +49,8 @@ public partial class MainWindow : Gtk.Window
         timer.Start();
         tenthsOfSecondsElapsed = 0;
         matchesFound = 0;
+        label2.LabelProp = $"Poprzedni czas: {previousTime}s";
+        label1.LabelProp = $"Twój czas: - s";
     }
 
     void Timer_Tick(object sender, EventArgs e)
@@ -57,7 +60,8 @@ public partial class MainWindow : Gtk.Window
         if (matchesFound == 8)
         {
             timer.Stop();
-            label1.LabelProp = (tem / 100).ToString();
+            previousTime = tem / 100;
+            label1.LabelProp = $"Twój czas: {(tem / 100).ToString()}s";
         }
     }
 
