@@ -39,9 +39,28 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
+    Button lastButtonClicked;
+    bool findingMatch = false;
+
     protected void OnButtonClicked(object sender, EventArgs e)
     {
         Button button = sender as Button;
+        if (findingMatch == false)
+        {
+            button.Visible = false;
+            lastButtonClicked = button;
+            findingMatch = true;
+        }
+        else if (button.Label == lastButtonClicked.Label)
+        {
+            button.Visible = false;
+            findingMatch = false;
+        }
+        else
+        {
+            lastButtonClicked.Visible = true;
+            findingMatch = false;
+        }
         Console.WriteLine($"Button {button.Name} clicked!");
     }
 }
