@@ -48,7 +48,7 @@ public partial class MainWindow
 		this.DefaultWidth = 400;
 		this.DefaultHeight = 450;
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.table2 = new global::Gtk.Table(((uint)(5)), ((uint)(4)), false);
+		this.table2 = new global::Gtk.Table(((uint)(4)), ((uint)(4)), false);
 		this.table2.Name = "table2";
 		this.table2.RowSpacing = ((uint)(6));
 		this.table2.ColumnSpacing = ((uint)(6));
@@ -187,8 +187,8 @@ public partial class MainWindow
 		this.button2.Label = global::Mono.Unix.Catalog.GetString("?");
 		this.table2.Add(this.button2);
 		global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.table2[this.button2]));
-		w9.XOptions = ((global::Gtk.AttachOptions)(4));
-		w9.YOptions = ((global::Gtk.AttachOptions)(4));
+		w9.XOptions = ((global::Gtk.AttachOptions)(0));
+		w9.YOptions = ((global::Gtk.AttachOptions)(0));
 		// Container child table2.Gtk.Table+TableChild
 		this.button3 = new global::Gtk.Button();
 		this.button3.WidthRequest = 87;
@@ -201,8 +201,8 @@ public partial class MainWindow
 		global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.table2[this.button3]));
 		w10.LeftAttach = ((uint)(1));
 		w10.RightAttach = ((uint)(2));
-		w10.XOptions = ((global::Gtk.AttachOptions)(4));
-		w10.YOptions = ((global::Gtk.AttachOptions)(4));
+		w10.XOptions = ((global::Gtk.AttachOptions)(0));
+		w10.YOptions = ((global::Gtk.AttachOptions)(0));
 		// Container child table2.Gtk.Table+TableChild
 		this.button4 = new global::Gtk.Button();
 		this.button4.WidthRequest = 87;
@@ -215,8 +215,8 @@ public partial class MainWindow
 		global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table2[this.button4]));
 		w11.LeftAttach = ((uint)(2));
 		w11.RightAttach = ((uint)(3));
-		w11.XOptions = ((global::Gtk.AttachOptions)(4));
-		w11.YOptions = ((global::Gtk.AttachOptions)(4));
+		w11.XOptions = ((global::Gtk.AttachOptions)(0));
+		w11.YOptions = ((global::Gtk.AttachOptions)(0));
 		// Container child table2.Gtk.Table+TableChild
 		this.button5 = new global::Gtk.Button();
 		this.button5.WidthRequest = 87;
@@ -229,8 +229,8 @@ public partial class MainWindow
 		global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.table2[this.button5]));
 		w12.LeftAttach = ((uint)(3));
 		w12.RightAttach = ((uint)(4));
-		w12.XOptions = ((global::Gtk.AttachOptions)(4));
-		w12.YOptions = ((global::Gtk.AttachOptions)(4));
+		w12.XOptions = ((global::Gtk.AttachOptions)(0));
+		w12.YOptions = ((global::Gtk.AttachOptions)(0));
 		// Container child table2.Gtk.Table+TableChild
 		this.button6 = new global::Gtk.Button();
 		this.button6.WidthRequest = 87;

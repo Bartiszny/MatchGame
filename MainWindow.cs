@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using Gtk;
+using System.Windows.Threading;
 
 public partial class MainWindow : Gtk.Window
 {
+
+    DispatcherTimer timer = new DispatcherTimer();
+    int tenthsOfSecondsElapsed;
+    int matchesFound;
+
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
+
+        timer.Interval = TimeSpan.FromSeconds(0.1);
+        timer.Tick += Timer_Tick;
         SetUpGame();
     }
 
@@ -32,6 +41,11 @@ public partial class MainWindow : Gtk.Window
             animalEmoji.RemoveAt(index);
         }
     }
+
+    void Timer_Tick(object sender, EventArgs e)
+    {
+    }
+
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
     {
