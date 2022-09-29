@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using Gtk;
 using System.Windows.Threading;
+using System.Timers;
 
 public partial class MainWindow : Gtk.Window
 {
 
-    DispatcherTimer timer = new DispatcherTimer();
+    //DispatcherTimer timer = new DispatcherTimer();
+    Timer timer = new Timer();
     int tenthsOfSecondsElapsed;
     int matchesFound;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
-        timer.IsEnabled = true;
+        timer.Enabled = true;
 
-        timer.Interval = TimeSpan.FromSeconds(.1);
+        timer.Interval = .1;
 
-        timer.Tick += Timer_Tick;
+        timer.Elapsed += Timer_Tick;
         SetUpGame();
     }
 
@@ -42,6 +44,7 @@ public partial class MainWindow : Gtk.Window
                 int index = random.Next(animalEmoji.Count);
                 string nextEmoji = animalEmoji[index];
                 button.Label = nextEmoji;
+                button.Visible = true;
                 animalEmoji.RemoveAt(index);
             }
         }
@@ -53,8 +56,8 @@ public partial class MainWindow : Gtk.Window
     void Timer_Tick(object sender, EventArgs e)
     {
         tenthsOfSecondsElapsed++;
-        button18.Label = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
-        Console.WriteLine(tenthsOfSecondsElapsed);
+        //button18.Label = (tenthsOfSecondsElapsed / 10F).ToString();
+        //Console.WriteLine(tenthsOfSecondsElapsed);
         if (matchesFound == 8)
         {
             timer.Stop();
