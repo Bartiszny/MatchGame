@@ -14,12 +14,12 @@ public partial class MainWindow : Gtk.Window
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
-        Build();
+
+        timer.Interval = 0.1;
+        timer.Elapsed += Timer_Tick;
         timer.Enabled = true;
 
-        timer.Interval = .1;
-
-        timer.Elapsed += Timer_Tick;
+        Build();
         SetUpGame();
     }
 
@@ -37,9 +37,9 @@ public partial class MainWindow : Gtk.Window
             "🐯","🐯",
         };
         Random random = new Random();
-        foreach (Gtk.Button button in table2.AllChildren)
+        foreach (Gtk.Button button in table4.AllChildren)
         {
-            if (button.Name != "button18")
+            if (button.Name != "Play")
             {
                 int index = random.Next(animalEmoji.Count);
                 string nextEmoji = animalEmoji[index];
@@ -56,11 +56,13 @@ public partial class MainWindow : Gtk.Window
     void Timer_Tick(object sender, EventArgs e)
     {
         tenthsOfSecondsElapsed++;
-        //button18.Label = (tenthsOfSecondsElapsed / 10F).ToString();
-        //Console.WriteLine(tenthsOfSecondsElapsed);
+        //label1.LabelProp = ((float)tenthsOfSecondsElapsed / 10F).ToString();
+        var tem = ((float)tenthsOfSecondsElapsed / 10F);
+        //Console.WriteLine("Time:" + tenthsOfSecondsElapsed);
         if (matchesFound == 8)
         {
             timer.Stop();
+            label1.LabelProp = (tem / 100).ToString();
         }
 
     }
@@ -78,7 +80,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnButtonClicked(object sender, EventArgs e)
     {
         Button button = sender as Button;
-        if (button.Name != "button18")
+        if (button.Name != "Play")
         {
             if (findingMatch == false)
             {
@@ -101,7 +103,7 @@ public partial class MainWindow : Gtk.Window
         }
     }
 
-    protected void OnButton18Clicked(object sender, EventArgs e)
+    protected void OnPlayClicked(object sender, EventArgs e)
     {
         if (matchesFound == 8)
         {
