@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using Gtk;
-using System.Windows.Threading;
 using System.Timers;
 
 public partial class MainWindow : Gtk.Window
 {
-
-    //DispatcherTimer timer = new DispatcherTimer();
     Timer timer = new Timer();
     int tenthsOfSecondsElapsed;
     int matchesFound;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
+        Build();
 
         timer.Interval = 0.1;
         timer.Elapsed += Timer_Tick;
         timer.Enabled = true;
 
-        Build();
         SetUpGame();
     }
 
@@ -56,17 +53,13 @@ public partial class MainWindow : Gtk.Window
     void Timer_Tick(object sender, EventArgs e)
     {
         tenthsOfSecondsElapsed++;
-        //label1.LabelProp = ((float)tenthsOfSecondsElapsed / 10F).ToString();
         var tem = ((float)tenthsOfSecondsElapsed / 10F);
-        //Console.WriteLine("Time:" + tenthsOfSecondsElapsed);
         if (matchesFound == 8)
         {
             timer.Stop();
             label1.LabelProp = (tem / 100).ToString();
         }
-
     }
-
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
     {
@@ -99,7 +92,6 @@ public partial class MainWindow : Gtk.Window
                 lastButtonClicked.Visible = true;
                 findingMatch = false;
             }
-            Console.WriteLine($"Button {button.Name} clicked!");
         }
     }
 
